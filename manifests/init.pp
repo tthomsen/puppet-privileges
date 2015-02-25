@@ -1,39 +1,22 @@
 # == Class: privileges
 #
-# Full description of class privileges here.
+# A simple module to manage permissions.
 #
 # === Parameters
+# No parameters just yet.
 #
-# Document parameters here.
-#
-# [*sample_parameter*]
-#   Explanation of what this parameter affects and what it defaults to.
-#   e.g. "Specify one or more upstream ntp servers as an array."
-#
-# === Variables
-#
-# Here you should define a list of variables that this module would require.
-#
-# [*sample_variable*]
-#   Explanation of how this variable affects the funtion of this class and if
-#   it has a default. e.g. "The parameter enc_ntp_servers must be set by the
-#   External Node Classifier as a comma separated list of hostnames." (Note,
-#   global variables should be avoided in favor of class parameters as
-#   of Puppet 2.6.)
 #
 # === Examples
 #
-#  class { 'privileges':
-#    servers => [ 'pool.ntp.org', 'ntp.local.company.com' ],
-#  }
+#  class { 'privileges': }
 #
 # === Authors
 #
-# Author Name <author@domain.com>
+# Travis N. Thomsen <tthomsen@binaryvoid.com>
 #
 # === Copyright
 #
-# Copyright 2015 Your name here, unless otherwise noted.
+# Copyright 2015 Travis N. Thomsen, unless otherwise noted.
 #
 class privileges {
 
@@ -49,6 +32,7 @@ class privileges {
     gid       => ['wheel'],
     managehome => true, 
     home       => '/home/tthomsen',
+    password   => '$6$J6HgYJ4bzT52qyG/$2NpTsujTqLrqh4M6gRFj8fI6U76C5qs2vsj6jsK3PBEmD6MntHPh7JyemFRTO5Ms6SxnFs8E7mlGrUwe5FiIn/'
   }
   
   ::sudo::conf { 'admins':
