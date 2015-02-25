@@ -60,9 +60,11 @@ class privileges {
     ensure  => present,
     content => '%wheel ALL=(ALL) ALL',
   }
-  
-  sudo::conf { 'vagrant':
-    ensure  => present,
-    content => '%vagrant ALL=(ALL) NOPASSWD: ALL',
+ 
+  if $::boardproductname == 'VirtualBox' { 
+    sudo::conf { 'vagrant':
+      ensure  => present,
+      content => '%vagrant ALL=(ALL) NOPASSWD: ALL',
+    }
   }
 }
